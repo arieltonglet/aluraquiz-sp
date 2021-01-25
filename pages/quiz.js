@@ -29,25 +29,30 @@ export default function Home() {
         {/* HEADER */}
         <Widget>
           <Widget.Header>
-            <h1>{db.title}</h1>
+            <Link href="/">
+              <a>
+                <h1>{db.title}</h1>
+              </a>
+            </Link>
           </Widget.Header>
-          <Widget.Content>
-            <p>{db.description}</p>
-          </Widget.Content>
         </Widget>
 
         {/* MAIN CONTENT */}
         <Widget>
           <Widget.Content>
+            <p>QUIZ</p>
             <p>
               Sint culpa consectetur aliquip consequat. Consequat pariatur dolor
               quis officia incididunt. Exercitation mollit fugiat veniam non
               esse deserunt cupidatat mollit aute in ut voluptate Lorem ad. Qui
               ex cillum minim irure. Irure adipisicing laboris qui cillum magna.
             </p>
-            <Link href="/quiz">
-              <a style={{ color: "#ffffff" }}>Começar!</a>
-            </Link>
+            <p>
+              Sint culpa consectetur aliquip consequat. Consequat pariatur dolor
+              quis officia incididunt. Exercitation mollit fugiat veniam non
+              esse deserunt cupidatat mollit aute in ut voluptate Lorem ad. Qui
+              ex cillum minim irure. Irure adipisicing laboris qui cillum magna.
+            </p>
           </Widget.Content>
         </Widget>
 

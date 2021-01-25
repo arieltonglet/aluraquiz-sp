@@ -1,0 +1,19 @@
+{
+  "bg": "https://images.unsplash.com/photo-1493488220078-55bbc84f638a",
+  "title": "Título do Quiz",
+  "description": "Sint culpa consectetur aliquip consequat. Consequat pariatur dolor quis officia incididunt",
+  "questions": [],
+  "external": [],
+  "theme": {
+      "colors": {
+        "primary": "#F2C36B",
+        "secondary": "#F2B6C6",
+        "mainBg": "#400124",
+        "contrastText": "#ffffff",
+        "wrong": "red",
+        "success": "green",
+        "highlight": "#F2C36B"
+      },
+      "borderRadius": "4px"
+  }
+}
