@@ -55,7 +55,7 @@ export default function Home() {
         <Footer />
       </QuizContainer>
 
-      <GitHubCorner projectUrl="https://github.com/arieltonglet/aluraquiz-base" />
+      <GitHubCorner projectUrl="https://github.com/arieltonglet/aluraquiz-sp" />
     </QuizBackground>
   );
 }
