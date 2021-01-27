@@ -16,7 +16,7 @@ const ExternalLinks = () => (
     <p>Links para outros projetos da imersão</p>
     <ul>
       {db.external.map((q) => (
-        <Li>
+        <Li key={q.url}>
           <Link href={q.url} target="_blank" rel="noopener noreferrer">
             {q.name}
           </Link>
