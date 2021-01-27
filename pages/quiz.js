@@ -1,13 +1,15 @@
-import Link from "next/link";
-import styled from "styled-components";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import db from "../db.json";
+import db from '../db.json';
 
-import Footer from "../src/components/Footer";
-import GitHubCorner from "../src/components/GitHubCorner";
-import QuizBackground from "../src/components/QuizBackground";
-import SEO from "../src/components/SEO";
-import Widget from "../src/components/Widget";
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizLogo from '../src/components/QuizLogo';
+import SEO from '../src/components/SEO';
+import Widget from '../src/components/Widget';
 
 const QuizContainer = styled.main`
   margin: auto;
@@ -21,11 +23,16 @@ const QuizContainer = styled.main`
   }
 `;
 
-export default function Home() {
+export default function QuizPage() {
+  const router = useRouter();
+
+  const { name } = router.query;
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <SEO />
       <QuizContainer>
+        <QuizLogo />
         {/* HEADER */}
         <Widget>
           <Widget.Header>
@@ -41,6 +48,7 @@ export default function Home() {
         <Widget>
           <Widget.Content>
             <p>QUIZ</p>
+            <p>{`Boas-vindas, ${name}`}</p>
             <p>
               Sint culpa consectetur aliquip consequat. Consequat pariatur dolor
               quis officia incididunt. Exercitation mollit fugiat veniam non

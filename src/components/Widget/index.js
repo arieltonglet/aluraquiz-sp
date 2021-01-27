@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Widget = styled.div`
   background-color: ${({ theme }) => theme.colors.mainBg};
@@ -11,17 +11,20 @@ const Widget = styled.div`
   h1,
   h2,
   h3 {
-    color: ${({ theme }) => theme.colors.mainBg};
     font-size: 1rem;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0;
   }
 
+  h1 {
+    color: ${({ theme }) => theme.colors.mainBg};
+  }
+
   p {
     font-size: 0.875rem;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 `;
 

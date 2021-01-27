@@ -1,13 +1,14 @@
-import Link from "next/link";
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import db from "../db.json";
+import db from '../db.json';
 
-import Footer from "../src/components/Footer";
-import GitHubCorner from "../src/components/GitHubCorner";
-import QuizBackground from "../src/components/QuizBackground";
-import SEO from "../src/components/SEO";
-import Widget from "../src/components/Widget";
+import ExternalLinks from '../src/components/ExternalLinks';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizLogo from '../src/components/QuizLogo';
+import StartForm from '../src/components/StartForm';
+import Widget from '../src/components/Widget';
 
 const QuizContainer = styled.main`
   margin: auto;
@@ -24,30 +25,22 @@ const QuizContainer = styled.main`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
-      <SEO />
       <QuizContainer>
         {/* HEADER */}
+        <QuizLogo />
         <Widget>
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>{db.description}</p>
+            <StartForm />
           </Widget.Content>
         </Widget>
 
         {/* MAIN CONTENT */}
         <Widget>
           <Widget.Content>
-            <p>
-              Sint culpa consectetur aliquip consequat. Consequat pariatur dolor
-              quis officia incididunt. Exercitation mollit fugiat veniam non
-              esse deserunt cupidatat mollit aute in ut voluptate Lorem ad. Qui
-              ex cillum minim irure. Irure adipisicing laboris qui cillum magna.
-            </p>
-            <Link href="/quiz">
-              <a style={{ color: "#ffffff" }}>Começar!</a>
-            </Link>
+            <ExternalLinks />
           </Widget.Content>
         </Widget>
 

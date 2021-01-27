@@ -1,6 +1,6 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import db from "../../../db.json";
+import db from '../../../db.json';
 
 const SEO = () => (
   <Head>

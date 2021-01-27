@@ -1,5 +1,8 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import db from "../db.json";
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+import db from '../db.json';
+import Fonts from '../src/components/Fonts';
+import SEO from '../src/components/SEO';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -31,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-//Get theme from json
+// Get theme from json
 const { theme } = db;
 
 export default function App({ Component, pageProps }) {
@@ -39,6 +42,10 @@ export default function App({ Component, pageProps }) {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <Fonts />
+        <SEO />
+
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
       </ThemeProvider>
     </>
