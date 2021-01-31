@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const QuizBackground = styled.div`
@@ -36,3 +37,7 @@ const QuizBackground = styled.div`
 `;
 
 export default QuizBackground;
+
+QuizBackground.propTypes = {
+  backgroundImage: PropTypes.string.isRequired,
+};

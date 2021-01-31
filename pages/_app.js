@@ -27,6 +27,12 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
 
+  a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
   #__next {
     flex: 1;
     display: flex;

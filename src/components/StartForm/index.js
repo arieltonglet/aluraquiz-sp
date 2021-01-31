@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import styled from 'styled-components';
+import Button from '../Button';
 
 const FormWrapper = styled.form`
   display: flex;
@@ -23,20 +24,6 @@ const StartInput = styled.input`
   padding: 8px;
 `;
 
-const StartButton = styled.button`
-  background: ${({ theme }) => theme.colors.secondary};
-  border: none;
-  color: ${({ theme }) => theme.colors.mainBg};
-  cursor: pointer;
-  padding: 8px;
-  text-transform: uppercase;
-
-  &:disabled {
-    cursor: default;
-    opacity: 0.5;
-  }
-`;
-
 const StartForm = () => {
   const router = useRouter();
   const [name, setName] = useState('');
@@ -52,9 +39,9 @@ const StartForm = () => {
         placeholder="Como devo te chamar?"
         onChange={(e) => setName(e.target.value)}
       />
-      <StartButton type="submit" disabled={name.length === 0}>
+      <Button type="submit" disabled={name.length === 0}>
         Jogar
-      </StartButton>
+      </Button>
       {name ? <p>{`Boas-vindas, ${name}!`}</p> : <p>Boas-vindas!</p>}
     </FormWrapper>
   );

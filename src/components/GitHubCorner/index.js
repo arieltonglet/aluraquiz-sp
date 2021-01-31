@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -69,3 +70,7 @@ export default function GitHubCorner({ projectUrl }) {
     </Wrapper>
   );
 }
+
+GitHubCorner.propTypes = {
+  projectUrl: PropTypes.string.isRequired,
+};
