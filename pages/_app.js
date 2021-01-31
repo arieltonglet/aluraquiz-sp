@@ -33,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  input:disabled { 
+    cursor: not-allowed;
+  }
+
   #__next {
     flex: 1;
     display: flex;

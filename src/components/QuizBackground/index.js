@@ -1,16 +1,39 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const QuizBackground = styled.div`
+const Quiz = styled.div`
   width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${({ backgroundImage }) => backgroundImage});
-  background-color: ${({ theme }) => theme.colors.mainBg};
+  background: linear-gradient(
+    0deg,
+    ${({ theme }) => theme.colors.mainBg},
+    ${({ theme }) => theme.colors.secondary}
+  );
   flex: 1;
 
   @media screen and (max-width: 500px) {
+    background: ${({ theme }) => theme.colors.mainBg};
+  }
+
+  *:nth-child(2) {
+    position: relative;
+    z-index: 10;
+  }
+`;
+
+const Background = styled.div`
+  background-size: cover;
+  background-position: center;
+  background-image: url(${({ backgroundImage }) => backgroundImage});
+  filter: blur(2px);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  @media screen and (max-width: 500px) {
     background-image: none;
+    mix-blend-mode: normal;
     &:after {
       content: '';
       background-size: cover;
@@ -29,12 +52,15 @@ const QuizBackground = styled.div`
       right: 0;
       z-index: 1;
     }
-    *:first-child {
-      position: relative;
-      z-index: 10;
-    }
   }
 `;
+
+const QuizBackground = ({ backgroundImage, children }) => (
+  <Quiz>
+    <Background backgroundImage={backgroundImage} />
+    {children}
+  </Quiz>
+);
 
 export default QuizBackground;
 

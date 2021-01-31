@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-
 import db from '../db.json';
 
 import ExternalLinks from '../src/components/ExternalLinks';
@@ -50,6 +48,18 @@ export default function Home() {
               </a>
             </p>
             <StartForm />
+            <p>
+              <small>
+                Imagem de fundo:{' '}
+                <a
+                  href="https://unsplash.com/photos/Eye_or7LxxQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DAVIDSONLUNA
+                </a>
+              </small>
+            </p>
           </Widget.Content>
         </Widget>
 

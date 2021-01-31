@@ -42,7 +42,6 @@ const StartForm = () => {
       <Button type="submit" disabled={name.length === 0}>
         Jogar
       </Button>
-      {name ? <p>{`Boas-vindas, ${name}!`}</p> : <p>Boas-vindas!</p>}
     </FormWrapper>
   );
 };
