@@ -80,15 +80,9 @@
   ],
 
   "external": [
-    { "name": "Type Quiz", "url": "https://typequiz.caducarvalho.vercel.app/" },
-    {
-      "name": "Rupaul's Drag Race Quiz",
-      "url": "https://rpdr-quiz-git-main.lucasgmelo.vercel.app/"
-    },
-    {
-      "name": "Pato Quiz",
-      "url": "https://pato-quiz-nextjs.theedouglasam.vercel.app/"
-    }
+    "https://typequiz.caducarvalho.vercel.app/",
+    "https://rpdr-quiz-git-main.lucasgmelo.vercel.app/",
+    "https://pato-quiz-nextjs.theedouglasam.vercel.app/"
   ],
   "theme": {
     "colors": {
@@ -100,6 +94,6 @@
       "success": "green",
       "highlight": "#F2C36B"
     },
-    "borderRadius": "4px"
+    "borderRadius": "2px"
   }
 }

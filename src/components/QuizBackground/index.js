@@ -27,7 +27,7 @@ const Background = styled.div`
   filter: blur(2px);
   mix-blend-mode: multiply;
   opacity: 0.8;
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
 

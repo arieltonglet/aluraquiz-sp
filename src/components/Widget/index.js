@@ -31,11 +31,13 @@ const Widget = styled.div`
 Widget.Header = styled.header`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.mainBg};
   display: flex;
   justify-content: flex-start;
   padding: 18px 32px;
 
   * {
+    color: inherit;
     margin: 0;
   }
 `;

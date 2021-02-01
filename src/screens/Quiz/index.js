@@ -1,47 +1,56 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
-import db from '../db.json';
-
-import Footer from '../src/components/Footer';
-import GitHubCorner from '../src/components/GitHubCorner';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
-import SEO from '../src/components/SEO';
-import Widget from '../src/components/Widget';
-import Button from '../src/components/Button';
-import AlternativesForm from '../src/components/AlternativesForm';
+import AlternativesForm from '../../components/AlternativesForm';
+import BackLinkArrow from '../../components/BackLinkArrow';
+import Button from '../../components/Button';
+import Footer from '../../components/Footer';
+import GitHubCorner from '../../components/GitHubCorner';
+import QuizContainer from '../../components/QuizContainer';
+import QuizBackground from '../../components/QuizBackground';
+import QuizLogo from '../../components/QuizLogo';
+import SEO from '../../components/SEO';
+import Widget from '../../components/Widget';
 
 // BUILD THE LOADING BLOCK
 const LoadingWidget = () => (
   <Widget>
-    <Widget.Content>[ LOADING ]</Widget.Content>
+    <Widget.Header>[ LOADING ]</Widget.Header>
   </Widget>
 );
 
 const ResultWidget = ({ name, results, score }) => (
   <Widget>
-    <Widget.Header>Fim de jogo!</Widget.Header>
+    <Widget.Header>
+      <BackLinkArrow href="/" /> Fim de jogo!
+    </Widget.Header>
     <Widget.Content>
       <p>{`Parabéns, ${name}!`}</p>
       <p>{`Você acertou ${score} resposta(s):`}</p>
       <ul>
         {results.map((r, i) => (
-          <li>{`#${i} — ${r ? 'Acertou' : 'Errou'}`}</li>
+          <li key={`${r}${i}`}>{`#${i} — ${r ? 'Acertou' : 'Errou'}`}</li>
         ))}
       </ul>
     </Widget.Content>
   </Widget>
 );
 
+const Image = styled.img`
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+`;
+
 // BUILD THE MAIN QUESTION BLOCK
 const QuestionWidget = ({
+  db,
   question,
   questionIndex,
   totalQuestions,
@@ -61,11 +70,7 @@ const QuestionWidget = ({
       {/* HEADER */}
       <Widget>
         <Widget.Header>
-          <Link href="/">
-            <a href="/">
-              <h1>{db.title}</h1>
-            </a>
-          </Link>
+          <BackLinkArrow href="/" />
           <span style={{ marginLeft: 'auto' }}>
             {`${questionIndex + 1} de ${totalQuestions}`}
           </span>
@@ -156,7 +161,7 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
+export default function QuizScreen({ db }) {
   //
   // Get data from URL
   const router = useRouter();
@@ -203,35 +208,38 @@ export default function QuizPage() {
   };
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <SEO />
-      <QuizContainer>
-        <QuizLogo />
+    <ThemeProvider theme={db.theme}>
+      <QuizBackground backgroundImage={db.bg}>
+        <SEO />
+        <QuizContainer>
+          <QuizLogo />
 
-        {/* LOADING */}
-        {screenState === screenStates.LOADING && <LoadingWidget />}
+          {/* LOADING */}
+          {screenState === screenStates.LOADING && <LoadingWidget />}
 
-        {/* MAIN CONTENT */}
-        {screenState === screenStates.QUIZ && (
-          <QuestionWidget
-            question={question}
-            totalQuestions={totalQuestions}
-            questionIndex={questionIndex}
-            onSubmit={handleSubmit}
-            addResult={addResult}
-          />
-        )}
+          {/* MAIN CONTENT */}
+          {screenState === screenStates.QUIZ && (
+            <QuestionWidget
+              question={question}
+              totalQuestions={totalQuestions}
+              questionIndex={questionIndex}
+              onSubmit={handleSubmit}
+              addResult={addResult}
+              db={db}
+            />
+          )}
 
-        {/* RESULTS */}
-        {screenState === screenStates.RESULT && (
-          <ResultWidget name={name} results={results} score={score} />
-        )}
+          {/* RESULTS */}
+          {screenState === screenStates.RESULT && (
+            <ResultWidget name={name} results={results} score={score} />
+          )}
 
-        {/* FOOTER */}
-        <Footer />
-      </QuizContainer>
+          {/* FOOTER */}
+          <Footer />
+        </QuizContainer>
 
-      <GitHubCorner projectUrl="https://github.com/arieltonglet/aluraquiz-sp" />
-    </QuizBackground>
+        <GitHubCorner projectUrl="https://github.com/arieltonglet/aluraquiz-sp" />
+      </QuizBackground>
+    </ThemeProvider>
   );
 }

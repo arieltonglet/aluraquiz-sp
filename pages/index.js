@@ -1,5 +1,6 @@
-import db from '../db.json';
+import { addScaleCorrection, motion } from 'framer-motion';
 
+import db from '../db.json';
 import ExternalLinks from '../src/components/ExternalLinks';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
@@ -15,7 +16,21 @@ export default function Home() {
       <QuizContainer>
         {/* HEADER */}
         <QuizLogo />
-        <Widget>
+        <Widget
+          as={motion.section}
+          variants={{
+            show: {
+              opacity: 1,
+              y: '0px',
+            },
+            hidden: {
+              opacity: 0,
+              y: '10px',
+            },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
@@ -64,14 +79,44 @@ export default function Home() {
         </Widget>
 
         {/* MAIN CONTENT */}
-        <Widget>
+        <Widget
+          as={motion.section}
+          variants={{
+            show: {
+              opacity: 1,
+              y: '0px',
+            },
+            hidden: {
+              opacity: 0,
+              y: '10px',
+            },
+          }}
+          transition={{ delay: 0.2 }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             <ExternalLinks />
           </Widget.Content>
         </Widget>
 
         {/* FOOTER */}
-        <Footer />
+        <Footer
+          as={motion.footer}
+          variants={{
+            show: {
+              opacity: 1,
+              y: '0px',
+            },
+            hidden: {
+              opacity: 0,
+              y: '10px',
+            },
+          }}
+          transition={{ delay: 0.4 }}
+          initial="hidden"
+          animate="show"
+        />
       </QuizContainer>
 
       <GitHubCorner projectUrl="https://github.com/arieltonglet/aluraquiz-sp" />
